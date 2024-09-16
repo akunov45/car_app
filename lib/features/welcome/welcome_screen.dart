@@ -1,5 +1,7 @@
 import 'package:car_app/core/assets/app_assets.dart';
+import 'package:car_app/core/utils/navigate_to.dart';
 import 'package:car_app/extension/context_extension.dart';
+import 'package:car_app/features/sign_in/sign_in_screen.dart';
 import 'package:car_app/theme/app_text_styles.dart';
 import 'package:car_app/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
               textWidget(text: 'Rent your dream car from the'),
               textWidget(text: 'Best Company'),
               SizedBox(height: context.mq.height / 10),
-              elevatedButton(),
+              elevatedButton(context),
             ],
           )
         ],
@@ -51,9 +53,11 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
-Widget elevatedButton() {
+Widget elevatedButton(BuildContext context) {
   return ElevatedButton(
-    onPressed: () {},
+    onPressed: () {
+      navigateTo(context, const SignInScreen());
+    },
     style: ElevatedButton.styleFrom(
       padding: const EdgeInsets.symmetric(horizontal: 64, vertical: 14),
       backgroundColor: AppColors.brickRed,
